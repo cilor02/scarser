@@ -1,0 +1,5 @@
+[0m[[0minfo[0m] [0m[32mTestExpressionTokeniser:[0m[0m
+[0m[[0minfo[0m] [0m[32mparse 6+7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give List('6','+','7')[0m[0m
+[0m[[0minfo[0m] [0m[32mparse 6 + 7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give List('6','+','7')[0m[0m

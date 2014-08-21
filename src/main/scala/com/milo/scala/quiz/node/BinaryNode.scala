@@ -11,6 +11,11 @@ import scala.collection.mutable.Map
 def isNumeric(str: String): Boolean = {
   !throwsNumberFormatException(str.toLong) || !throwsNumberFormatException(str.toDouble)
 }
+  
+def isReallyNumeric(s:String) ={ 
+  val digits = (0 to 9 toList) map (_ toString) 
+  s.toList map ( _ toString) forall (digits contains(_))
+}
  
 def throwsNumberFormatException(f: => Any): Boolean = {
   try { f; false } catch { case e: NumberFormatException => true }
@@ -22,9 +27,9 @@ def isAllDigits(x: String) = x forall Character.isDigit
       s match
   { 
     case x if (s.head=='+' || s.head=='-') && s.tail.forall( _.isDigit) =>new LeafNumericNode(s.toInt)
-    case x if (s.head=='+' || s.head=='-') && isNumeric(s.tail) => new LeafNumericNode(s.toDouble)
-    case x if (s.toList forall( _.isDigit)) =>println("======== all digits =========" + s);new LeafNumericNode(s.toInt)  // leading sign?
-    case x if(isNumeric(s))=> println("=========== nUmeric "+ s +isNumeric(s));new LeafNumericNode(s.toDouble) //leading sign ?
+    case x if (s.head=='+' || s.head=='-') && isReallyNumeric(s.tail) => new LeafNumericNode(s.toDouble)
+   // case x if  s.toList forall( _.isDigit) =>{println("======== all digits =========" + s);new LeafNumericNode(s.toInt)}  // leading sign?
+    case x if isReallyNumeric(s) => println(s+"=========== nUmeric "+ s +isReallyNumeric(s) ); new LeafNumericNode(Integer.parseInt(s)) //leading sign ?
     case _ => variableMap.get(s) match { case None =>  new LeafVarNode(s) case _ => new LeafVariableNode(s) }  
   }
   

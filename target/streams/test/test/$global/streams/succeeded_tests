@@ -1,4 +1,7 @@
 #Successful Tests
-#Mon Aug 18 07:03:35 BST 2014
-com.milo.test.TestExpressionTokeniser=1408341815057
-com.milo.test.TestVariableNode=1408341815060
+#Wed Aug 20 22:19:01 BST 2014
+com.milo.test.TestVarNode=1408569541277
+com.milo.test.TestExpressionTokeniser=1408569541277
+com.milo.test.TestVariableNode=1408569541403
+com.milo.test.TestBinaryNode=1408569541277
+com.milo.test.TestNoBracket=1408569541323

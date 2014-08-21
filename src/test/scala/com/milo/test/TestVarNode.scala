@@ -18,7 +18,7 @@ val node = new BinaryNode("+","17","com.milo.var1")
 
   describe("parse 16+17") {
     it("should give 33") {
-      assert(node.value  == 23)
+      assert(node.value  == 33)
     }
   }
   

@@ -2,7 +2,7 @@ package com.milo.scala.quiz.parser
 
 import scala.collection.mutable.Map
 
-class ExpressionBuilder (exp:List[String])(implicit var map:Map[String,com.milo.scala.quiz.node.Node], var variableMap : Map [String,Double])
+class ExpressionBuilder2 (exp:List[String])(implicit var map:Map[String,com.milo.scala.quiz.node.Node], var variableMap : Map [String,Double])
 {
   def processBrackets(expression:List[String]):List[String] =
   {
@@ -22,10 +22,5 @@ class ExpressionBuilder (exp:List[String])(implicit var map:Map[String,com.milo.
      processBrackets(exp)
   }  
   
-    def processNodes():List[String] = 
-  {    
-     val noBracketTree = new NoBracketExpressionBuilder(processBrackets(exp))
-     noBracketTree.process
-     noBracketTree.newList 
-  }  
+  
 }

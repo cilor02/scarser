@@ -8,6 +8,7 @@ import scala.collection.mutable.Map
 import com.milo.scala.quiz.parser.NoBracketExpressionBuilder
 import com.milo.scala.quiz.node.LeafVarNode
 import com.milo.scala.quiz.parser.ExpressionBuilder
+import com.milo.scala.parser.state.SignBinder
 
 class TestExpressionBuilder extends FunSpec with ShouldMatchers {
 implicit var map:Map[String,Node] =  Map[String,Node]()
@@ -63,8 +64,8 @@ val tokens3 = node3.processNodes
 
 
 var tokeniser4 = new ExpressionTokeniser("(6 + 0) * (12 + 8) / (9 - 4 + 1)")
-tokeniser4.startTokenising 
-val node4 = new ExpressionBuilder(tokeniser4.tokens.toList)
+ 
+val node4 = new ExpressionBuilder(tokeniser4.startTokenising.toList)
 val tokens4 = node4.processNodes
 
   describe("(6 + 0) * (12 + 8) / (9 - 4 + 1)") {

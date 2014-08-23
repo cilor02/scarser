@@ -28,7 +28,7 @@ val symbols = new SignBinder(List[String] ("6","+","7"))
   
    describe("bind 6,-,-,7") {
     it("should give 6,-,-7") {
-      assert(new SignBinder(List[String] ("6","-","-","7")).bindSigns == List[String] ("6","-","-7"))
+      assert(new SignBinder(List[String] ("6","-","-","7")).bindSigns == List[String] ("6","+","-1","*","-7"))
     }
   }
    

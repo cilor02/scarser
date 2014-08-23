@@ -1,6 +1,7 @@
 package com.milo.scala.quiz.parser
 
 import scala.collection.mutable.ListBuffer
+import com.milo.scala.parser.state.SignBinder
 
 class ExpressionTokeniser (phrase:String)
 {
@@ -62,6 +63,7 @@ class ExpressionTokeniser (phrase:String)
   def startTokenising : ListBuffer[String] =
   {
     tokenise(phrase)
+    //tokens = new SignBinder(tokens toList).bindSigns.clone
     tokens
   }
   

@@ -31,13 +31,11 @@ class NoBracketExpressionBuilder (tokens:List[String])(implicit var map:Map[Stri
    def processOp (op:String) :Unit = 
    {
     newList = processAllOccsOps(newList,op)
-    println(newList)
    }
   
   def processAllOccsOps (lstTkns:List[String], op:String):List[String] =
   { 
     val i = lstTkns.indexWhere(s =>s.==(op))
-    println(i)
     if (i >= 0)
     {
       val n = new BinaryNode(lstTkns(i),lstTkns(i-1),lstTkns(i+1))

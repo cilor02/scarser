@@ -28,8 +28,7 @@ def isAllDigits(x: String) = x forall Character.isDigit
   { 
     case x if (s.head=='+' || s.head=='-') && s.tail.forall( _.isDigit) =>new LeafNumericNode(s.toInt)
     case x if (s.head=='+' || s.head=='-') && isReallyNumeric(s.tail) => new LeafNumericNode(s.toDouble)
-   // case x if  s.toList forall( _.isDigit) =>{println("======== all digits =========" + s);new LeafNumericNode(s.toInt)}  // leading sign?
-    case x if isReallyNumeric(s) => println(s+"=========== nUmeric "+ s +isReallyNumeric(s) ); new LeafNumericNode(Integer.parseInt(s)) //leading sign ?
+    case x if isReallyNumeric(s) =>  new LeafNumericNode(Integer.parseInt(s)) //leading sign ?
     case _ => variableMap.get(s) match { case None =>  new LeafVarNode(s) case _ => new LeafVariableNode(s) }  
   }
   

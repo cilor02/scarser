@@ -16,7 +16,9 @@ class SignBinder (tokens:List[String])  {
     tokens match 
     {
       case List() => newLst
+      case operator(head)::tail if head == "-" => newLst.++=( List ("+","-1","*"));signOrVarNum(tokens.tail)
       case operator(head)::tail => newLst.+=( tokens.head);signOrVarNum(tokens.tail)
+
       case _  => newLst.+=( tokens.head);next(tokens.tail)
     }
     }

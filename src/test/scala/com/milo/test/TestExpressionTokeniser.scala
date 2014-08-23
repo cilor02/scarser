@@ -8,6 +8,12 @@ tokens.startTokenising
 println(tokens.tokens)
 
 //rNode.value
+  describe("parse a") {
+    it("should give List(a)") {
+      assert(ExpressionTokeniser("a").startTokenising  == List("a"))
+    }
+  }
+
 
   describe("parse 6+7") {
     it("should give List('6','+','7')") {

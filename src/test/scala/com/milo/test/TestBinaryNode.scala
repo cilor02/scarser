@@ -19,5 +19,12 @@ val node = new BinaryNode("+","6","7")
       assert(node.value  == 13)
     }
   }
+
+
+  describe("parse 7 + -6") {
+    it("should give 1") {
+      assert(new BinaryNode("+","-6","7").value  == 1)
+    }
+  }
   
 }

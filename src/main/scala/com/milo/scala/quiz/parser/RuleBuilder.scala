@@ -7,11 +7,11 @@ import com.milo.scala.quiz.node.BooleanNode
 import com.milo.scala.quiz.node.BinaryPairNode
 import com.milo.scala.quiz.node.Node
 
-class RuleBuilder (implicit var map:Map[String,Node], implicit var variableMap:Map[String, Double], var boolMap :Map[String,List[String]])
+class RuleBuilder (implicit var map:Map[String,Node], implicit var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
 {
   
   //val boolMap:Map[String, List[String]] = Map[String, List[String]]()
-  val nodeMap:Map[String, BooleanNode] = Map[String, BooleanNode]()
+  //val nodeMap:Map[String, BooleanNode] = Map[String, BooleanNode]()
   
   var boolOps = List("or","and")
   val arithOps = List("<=",">=","=",">","<", "factorOf", "multipleOf")

@@ -76,10 +76,23 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
   } 
   
     
-        describe("a=6,b=7,c=8 : a + 1 = b + 0") {
+    describe("a=6,b=7,c=8 : a + 1 = b + 0") {
     it("should give true") {
       assert(new RelationalNode("=","a + 1","b + 0").value)
     }
   }
   
+    describe("a=6,b=7,c=8 : (a + 1) * b = a * c + 1") {
+    it("should give true") {
+      assert(new RelationalNode("=","(a + 1) * b","a * c + 1").value)
+    }
+  }    
+      
+    
+     describe("a=6,b=7,c=8 : (a + 1) * b != a * c") {
+    it("should give true") {
+      assert(new RelationalNode("!=","(a + 1) * b","a * c").value)
+    }
+  } 
+    
 }

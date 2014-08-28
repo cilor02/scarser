@@ -1,8 +1,10 @@
 #Successful Tests
-#Sat Aug 23 18:49:40 BST 2014
-com.milo.test.TestVarNode=1408816180531
-com.milo.test.TestSignBinder=1408816180737
-com.milo.test.TestExpressionTokeniser=1408816180842
-com.milo.test.TestVariableNode=1408816180799
-com.milo.test.TestBinaryNode=1408816180531
-com.milo.test.TestNoBracket=1408816180771
+#Sat Aug 23 20:15:02 BST 2014
+com.milo.test.TestExpressionBuilder=1408821302188
+com.milo.test.TestRelationalNode=1408821302361
+com.milo.test.TestVarNode=1408821302368
+com.milo.test.TestSignBinder=1408821302531
+com.milo.test.TestExpressionTokeniser=1408821302493
+com.milo.test.TestVariableNode=1408821302361
+com.milo.test.TestBinaryNode=1408821302195
+com.milo.test.TestNoBracket=1408821302188

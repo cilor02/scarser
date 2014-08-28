@@ -63,7 +63,7 @@ class ExpressionTokeniser (phrase:String)
   def startTokenising : ListBuffer[String] =
   {
     tokenise(phrase)
-    //tokens = new SignBinder(tokens toList).bindSigns.clone
+    tokens = new SignBinder(tokens toList).bindSigns.clone
     tokens
   }
   

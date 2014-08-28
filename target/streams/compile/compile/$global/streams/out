@@ -2,29 +2,29 @@
 [0m[[0mdebug[0m] [0mInitial source changes: [0m
 [0m[[0mdebug[0m] [0m	removed:Set()[0m
 [0m[[0mdebug[0m] [0m	added: Set()[0m
-[0m[[0mdebug[0m] [0m	modified: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\BinaryNode.scala, C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\parser\NoBracketExpressionBuilder.scala)[0m
+[0m[[0mdebug[0m] [0m	modified: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\Node.scala)[0m
 [0m[[0mdebug[0m] [0mRemoved products: Set()[0m
 [0m[[0mdebug[0m] [0mExternal API changes: API Changes: Set()[0m
 [0m[[0mdebug[0m] [0mModified binary dependencies: Set()[0m
-[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\BinaryNode.scala, C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\parser\NoBracketExpressionBuilder.scala)[0m
+[0m[[0mdebug[0m] [0mInitial directly invalidated sources: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\Node.scala)[0m
 [0m[[0mdebug[0m] [0m[0m
 [0m[[0mdebug[0m] [0mSources indirectly invalidated by:[0m
 [0m[[0mdebug[0m] [0m	product: Set()[0m
 [0m[[0mdebug[0m] [0m	binary dep: Set()[0m
 [0m[[0mdebug[0m] [0m	external source: Set()[0m
-[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\BinaryNode.scala, C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\parser\NoBracketExpressionBuilder.scala)[0m
-[0m[[0minfo[0m] [0mCompiling 2 Scala sources to C:\scala_dev\projects\scarser\target\scala-2.10\classes...[0m
+[0m[[0mdebug[0m] [0mAll initially invalidated sources: Set(C:\scala_dev\projects\scarser\src\main\scala\com\milo\scala\quiz\node\Node.scala)[0m
+[0m[[0minfo[0m] [0mCompiling 1 Scala source to C:\scala_dev\projects\scarser\target\scala-2.10\classes...[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.0[0m
 [0m[[0mdebug[0m] [0mGetting compiler-interface from component compiler for Scala 2.10.0[0m
-[0m[[0mdebug[0m] [0mRunning cached compiler 639a07f5, interfacing (CompilerInterface) with Scala compiler version 2.10.0[0m
+[0m[[0mdebug[0m] [0mRunning cached compiler 467746a2, interfacing (CompilerInterface) with Scala compiler version 2.10.0[0m
 [0m[[0mdebug[0m] [0mCalling Scala compiler with arguments  (CompilerInterface):[0m
 [0m[[0mdebug[0m] [0m	-bootclasspath[0m
 [0m[[0mdebug[0m] [0m	c:\Program Files\Java\jdk1.7.0_60\jre\lib\resources.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\rt.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\sunrsasign.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\jsse.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\jce.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\charsets.jar;c:\Program Files\Java\jdk1.7.0_60\jre\lib\jfr.jar;c:\Program Files\Java\jdk1.7.0_60\jre\classes;C:\Users\MICHAEL\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.0.jar[0m
 [0m[[0mdebug[0m] [0m	-classpath[0m
 [0m[[0mdebug[0m] [0m	C:\scala_dev\projects\scarser\target\scala-2.10\classes[0m
-[0m[[33mwarn[0m] [0mthere were 7 feature warnings; re-run with -feature for details[0m
+[0m[[33mwarn[0m] [0mthere were 3 feature warnings; re-run with -feature for details[0m
 [0m[[33mwarn[0m] [0mone warning found[0m
-[0m[[0mdebug[0m] [0mScala compilation took 18.416268329 s[0m
+[0m[[0mdebug[0m] [0mScala compilation took 22.646842488 s[0m
 [0m[[0mdebug[0m] [0mNew invalidations:[0m
 [0m[[0mdebug[0m] [0m	Set()[0m
 [0m[[0mdebug[0m] [0mInitial set of included nodes: Set()[0m

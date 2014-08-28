@@ -5,8 +5,8 @@ class BinaryPairNode (op:String,leftNode:String,rightNode:String) extends Boolea
 {
 
   
-  val left:BooleanNode = null
-  val right:BooleanNode = null
+  val left:BooleanNode = buildNode(leftNode)
+  val right:BooleanNode = buildNode(rightNode)
   
   
   val operation = op match 
@@ -15,7 +15,15 @@ class BinaryPairNode (op:String,leftNode:String,rightNode:String) extends Boolea
     case "or" => (a:Boolean,b:Boolean) => a||b
         
   }
-  
+  def buildNode(s:String):BooleanNode =
+  {
+    s match 
+    {
+      case x if s.equalsIgnoreCase("true") => TrueNode()
+      case x if s.equalsIgnoreCase("false") => FalseNode()
+      
+    }
+  }
   override def value = operation(left.value,right.value)
   
   override def toString = leftNode + ":" + op + ":" +  rightNode

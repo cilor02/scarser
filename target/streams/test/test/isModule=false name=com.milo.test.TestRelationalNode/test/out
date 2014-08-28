@@ -8,34 +8,14 @@
 [0m[[0minfo[0m] [0m[32m13 < 14 [0m[0m
 [0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a = 6[0m[0m
-[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
-[0m[[0minfo[0m] [0m[31m  java.lang.NumberFormatException: For input string: "a"[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.Integer.parseInt(Integer.java:492)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.Integer.parseInt(Integer.java:527)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.NoBracketExpressionBuilder.process(NoBracketExpressionBuilder.scala:20)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.ExpressionBuilder.processNodes(ExpressionBuilder.scala:28)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.<init>(RelationalNode.scala:17)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$5$$anonfun$apply$mcV$sp$5.apply$mcV$sp(TestRelationalNode.scala:62)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$5$$anonfun$apply$mcV$sp$5.apply(TestRelationalNode.scala:62)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$5$$anonfun$apply$mcV$sp$5.apply(TestRelationalNode.scala:62)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = 7[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = b[0m[0m
-[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
-[0m[[0minfo[0m] [0m[31m  java.lang.NumberFormatException: For input string: "b"[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.Integer.parseInt(Integer.java:492)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at java.lang.Integer.parseInt(Integer.java:527)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.NoBracketExpressionBuilder.process(NoBracketExpressionBuilder.scala:20)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.ExpressionBuilder.processNodes(ExpressionBuilder.scala:28)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.<init>(RelationalNode.scala:12)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$7$$anonfun$apply$mcV$sp$7.apply$mcV$sp(TestRelationalNode.scala:74)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$7$$anonfun$apply$mcV$sp$7.apply(TestRelationalNode.scala:74)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRelationalNode$$anonfun$7$$anonfun$apply$mcV$sp$7.apply(TestRelationalNode.scala:74)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = b + 0[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : (a + 1) * b = a * c + 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : (a + 1) * b != a * c[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give true[0m[0m

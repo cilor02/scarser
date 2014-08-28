@@ -17,7 +17,7 @@ class NoBracketExpressionBuilder (tokens:List[String])(implicit var map:Map[Stri
   {
     if(tokens.size == 1)
     {
-      val n = new LeafNumericNode( Integer.parseInt(tokens.head))
+      val n = Node.buildNode(tokens.head)
       val name = NoBracketExpressionBuilder.newName
       map += (name -> n)
       //n.store(name)

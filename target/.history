@@ -13,3 +13,8 @@ last compile:run
 run
 test
 exit
+test
+git commit -am"BinaryBooleanPair"
+git add .
+quit
+exit

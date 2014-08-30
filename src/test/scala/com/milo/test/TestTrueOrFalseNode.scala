@@ -21,7 +21,7 @@ class TestTrueOrFalseNode extends FunSpec with ShouldMatchers {
 
   describe("parse False Node") {
     it("should give false") {
-      assert(FalseNode().value)
+      assert(!FalseNode().value)
     }
   }
 

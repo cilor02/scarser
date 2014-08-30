@@ -4,17 +4,18 @@ package com.milo.scala.quiz.parser
 import scala.collection.mutable.Map
 import com.milo.scala.quiz.node.BinaryPairNode
 import com.milo.scala.quiz.node.BooleanNode
-import com.milo.scala.quiz.node.BinaryPairNode
 import com.milo.scala.quiz.node.Node
 
-class RuleBuilder (implicit var map:Map[String,Node], implicit var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
+class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
 {
   
-  //val boolMap:Map[String, List[String]] = Map[String, List[String]]()
-  //val nodeMap:Map[String, BooleanNode] = Map[String, BooleanNode]()
+  implicit val boolMap:Map[String, List[String]] = Map[String, List[String]]()
+  //implicit val nodeMap:Map[String, BooleanNode] = Map[String, BooleanNode]()
   
-  var boolOps = List("or","and")
-  val arithOps = List("<=",">=","=",">","<", "factorOf", "multipleOf")
+    
+ val boolOps = List("or","and")
+ val arithOps = List("<=",">=","=",">","<", "factorOf", "multipleOf")
+  
   val prefix = "com.milo.BooleanPhrase"
   var nameCount = 0
   
@@ -177,7 +178,8 @@ def spaceOutBooleanOperators (s:String):String =
         val rightBoolToken = tokens(idx + 1)
  
         val newNode = new BinaryPairNode (tokens(idx),tokens(idx - 1), tokens(idx + 1))
-        
+       
+       /* 
         val leftArithmeticExp  = processBooleanStatement(leftBoolToken, arithOps)
         val rightArithmeticExp = processBooleanStatement(rightBoolToken, arithOps)
         println(leftArithmeticExp)
@@ -188,7 +190,7 @@ def spaceOutBooleanOperators (s:String):String =
         val b2 = new ExpressionBuilder(tk2.startTokenising.toList)
         b1.process
         b2.process
-        
+        */
         
         
         // check whether token in node map; if not then assume to be evaluated
@@ -199,9 +201,13 @@ def spaceOutBooleanOperators (s:String):String =
         
         val newTokenList:List[String] = splitList._1:::newNodeName::(splitList._2 splitAt 3)._2
         
-        buildNodes(newTokenList,ops.tail)
+        buildNodes(newTokenList,ops)
 
       
+      }
+      else{
+          buildNodes(tokens,ops.tail)
+
       }
       }
     }

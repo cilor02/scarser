@@ -18,3 +18,5 @@ git commit -am"BinaryBooleanPair"
 git add .
 quit
 exit
+test
+exit

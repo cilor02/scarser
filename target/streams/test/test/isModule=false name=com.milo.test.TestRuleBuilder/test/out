@@ -1,0 +1,15 @@
+[0m[[0minfo[0m] [0m[32mTestRuleBuilder:[0m[0m
+[0m[[0minfo[0m] [0m[32m(6 + 12 > 9) and (1 < 4 - 2)[0m[0m
+[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: key not found: (6 + 12 > 9) and (1 < 4 - 2)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.MapLike$class.default(MapLike.scala:228)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.AbstractMap.default(Map.scala:58)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.mutable.HashMap.apply(HashMap.scala:64)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.RuleBuilder.tokenise(RuleBuilder.scala:195)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.RuleBuilder.tokenise(RuleBuilder.scala:198)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.RuleBuilder.parseNodes(RuleBuilder.scala:101)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.RuleBuilder.startParseNodes(RuleBuilder.scala:63)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(TestRuleBuilder.scala:37)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(TestRuleBuilder.scala:37)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(TestRuleBuilder.scala:37)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m

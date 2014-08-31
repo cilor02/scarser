@@ -1,0 +1,5 @@
+[0m[[0minfo[0m] [0m[32mTestTrueOrFalseNode:[0m[0m
+[0m[[0minfo[0m] [0m[32mparse True Node[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32mparse False Node[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give false[0m[0m

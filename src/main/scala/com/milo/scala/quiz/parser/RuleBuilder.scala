@@ -5,6 +5,7 @@ import scala.collection.mutable.Map
 import com.milo.scala.quiz.node.BinaryPairNode
 import com.milo.scala.quiz.node.BooleanNode
 import com.milo.scala.quiz.node.Node
+import com.milo.scala.quiz.node.BooleanRefNode
 
 class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
 {
@@ -56,7 +57,50 @@ class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[Strin
     tokenise(workString,boolOps)
   }
   
-
+  def startParseNodes (s:String):BooleanNode =
+  {
+    val name = nextName
+    val root = parseNodes(s)
+    nodeMap.+=(name -> root )
+    root
+  }
+  
+def parseNodes (s:String):BooleanNode =
+  {
+    var workString = spaceOutBooleanOperators(s)
+    for (op <- boolOps)
+    {
+     var startingFrom = 0
+     while (startingFrom > -1)
+     {
+     {
+      var opIndex = workString.indexOf( op, startingFrom)
+      val bracketrange = findEnclosingBrackets(workString,op,startingFrom)
+      val bracket1 = bracketrange._1
+      val bracket2 = bracketrange._2
+      
+      if(bracketrange._1 > -1  && bracketrange._2 > -1)
+      {        
+        val name = nextName
+        val subPhrase = workString.substring(bracket1 + 1, bracket2)
+        
+        println(name + " : " +tokenise(subPhrase,boolOps))
+        nodeMap.+=(name -> parseNodes(subPhrase))
+        workString = workString.take(bracket1 ) + name + workString.drop(bracket2 + 1)        
+      }
+      //else
+      //{
+        // no brackets
+      //  buildNodes(tokenise(workString,boolOps),arithOps)
+      //}
+      startingFrom = workString.indexOf( op, opIndex + op.length());     
+    }
+    }
+   }
+    println("no bracket phrase : "+ workString)
+    println(tokenise(workString,boolOps))
+    buildNodes(tokenise(workString,boolOps),arithOps)
+  }
   
   def findEnclosingBrackets(s:String,op:String,from:Int):Tuple2[Int,Int] =
   {
@@ -145,10 +189,12 @@ def spaceOutBooleanOperators (s:String):String =
       if (ops.isEmpty)
         return List(s)
      val posOp = s.indexOf(ops.head)
-     if(posOp > -1 && s(posOp -1) == ' ' && s(posOp + ops.head.length()) == ' ')
+     println("==============" + s + ops.head + posOp + " " + (( posOp > -1 && s.charAt(posOp - 1) == ' ') ))
+     if((posOp > -1 && s.charAt(posOp - 1) == ' ') && s.charAt(posOp + ops.head.length()) == ' ')
      {
-       return tokenise(s.take(posOp).mkString,ops.tail):::List(ops.head):::tokenise(s.drop(posOp + ops.head.length()).mkString,ops)
+       return tokenise(s.toList.take(posOp).mkString,ops.tail):::List(ops.head):::tokenise(s.toList.drop(posOp + ops.head.length()).mkString,ops)
      }
+      println("tail " + s + ops.tail)
      tokenise(s,ops.tail)
     }
     
@@ -165,7 +211,7 @@ def spaceOutBooleanOperators (s:String):String =
         leftExpAndRightExp.toList ::: List( ops.head)
      }
     
-    def buildNodes(tokens:List[String], ops:List[String]) 
+    def buildNodes(tokens:List[String], ops:List[String]) :BooleanNode =
     {
       if(!ops.isEmpty)
       {
@@ -179,21 +225,8 @@ def spaceOutBooleanOperators (s:String):String =
  
         val newNode = new BinaryPairNode (tokens(idx),tokens(idx - 1), tokens(idx + 1))
        
-       /* 
-        val leftArithmeticExp  = processBooleanStatement(leftBoolToken, arithOps)
-        val rightArithmeticExp = processBooleanStatement(rightBoolToken, arithOps)
-        println(leftArithmeticExp)
-        println(rightArithmeticExp)
-        val tk1 = new ExpressionTokeniser(leftArithmeticExp.head)
-        val tk2 = new ExpressionTokeniser(leftArithmeticExp.tail.head)
-        val b1 = new ExpressionBuilder(tk1.startTokenising.toList)
-        val b2 = new ExpressionBuilder(tk2.startTokenising.toList)
-        b1.process
-        b2.process
-        */
         
         
-        // check whether token in node map; if not then assume to be evaluated
         val newNodeName = this.nextName
         this.nodeMap+=(newNodeName -> newNode)
 
@@ -202,6 +235,7 @@ def spaceOutBooleanOperators (s:String):String =
         val newTokenList:List[String] = splitList._1:::newNodeName::(splitList._2 splitAt 3)._2
         
         buildNodes(newTokenList,ops)
+        
 
       
       }
@@ -209,6 +243,9 @@ def spaceOutBooleanOperators (s:String):String =
           buildNodes(tokens,ops.tail)
 
       }
+      }else
+      {
+        new BooleanRefNode(tokens.head)
       }
     }
     

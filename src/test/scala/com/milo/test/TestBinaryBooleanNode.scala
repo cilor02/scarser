@@ -44,4 +44,15 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
     }
   }
 
+    describe("(6 + 12) * (3 - 2) = 18 and (12 + 6 > 4 + 1)") {
+    it("should give true") {
+      assert(new BinaryPairNode("and","(6 + 12) * (3 - 2) = 18","(12 + 6 > 4 + 1)").value)
+    }
+  }
+
+    describe("((6 + 12) * (3 - 2) = 18) and (12 + 6 > 4 + 1)") {
+    it("should give true") {
+      assert(new BinaryPairNode("and","((6 + 12) * (3 - 2) = 18)","(12 + 6 > 4 + 1)").value)
+    }
+  }  
 }

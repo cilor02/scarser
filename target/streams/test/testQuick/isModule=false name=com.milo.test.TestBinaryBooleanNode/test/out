@@ -1,0 +1,33 @@
+[0m[[0minfo[0m] [0m[32mTestBinaryBooleanNode:[0m[0m
+[0m[[0minfo[0m] [0m[32m6 + 12 = 18 and 12 + 6 > 4[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m(6 + 12) * (3 - 2) = 18 and 12 + 6 > 4 + 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m(6 + 12) * (3 - 2) = 18 and (12 + 6 > 4 + 1)[0m[0m
+[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: head of empty list[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:328)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:325)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.signOrVarNum$1(SignBinder.scala:31)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.next$1(SignBinder.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.signOrVarNum$1(SignBinder.scala:31)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.bindSigns(SignBinder.scala:36)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.ExpressionTokeniser.startTokenising(ExpressionTokeniser.scala:66)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.<init>(RelationalNode.scala:11)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.buildNodes(BinaryPairNode.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.buildNodes(BinaryPairNode.scala:83)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m((6 + 12) * (3 - 2) = 18) and (12 + 6 > 4 + 1)[0m[0m
+[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: head of empty list[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:328)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at scala.collection.immutable.Nil$.head(List.scala:325)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.signOrVarNum$1(SignBinder.scala:31)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.next$1(SignBinder.scala:20)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.signOrVarNum$1(SignBinder.scala:31)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.parser.state.SignBinder.bindSigns(SignBinder.scala:36)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.parser.ExpressionTokeniser.startTokenising(ExpressionTokeniser.scala:66)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.<init>(RelationalNode.scala:11)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.buildNodes(BinaryPairNode.scala:85)[0m[0m
+[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.buildNodes(BinaryPairNode.scala:83)[0m[0m
+[0m[[0minfo[0m] [0m[31m  ...[0m[0m

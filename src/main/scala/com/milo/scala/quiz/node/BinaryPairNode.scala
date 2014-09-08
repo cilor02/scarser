@@ -7,8 +7,46 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
 {
   val arithOps = List("<=",">=","=",">","<", "factorOf", "multipleOf")
   val boolOps = List("or","and")
-  val leftRelational:BooleanNode = buildNode(leftBoolToken)
-  val rightRelational:BooleanNode = buildNode(rightBoolToken)
+  
+        def stripOuterBrackets(s:String,p:Int):Boolean =
+      {
+        println( "token " + s + " bracket count " + p)
+        val sTrim = s.trim
+        if (sTrim.length == 0)
+          false
+        else
+         sTrim.charAt(0) match 
+        {
+          case ')' if sTrim.length() > 1 && p == 1  => false
+          case ')' if sTrim.length() == 1 && p > 0  => true
+          case '(' => stripOuterBrackets(sTrim.substring(1), p + 1) 
+          case ')' => stripOuterBrackets(sTrim.substring(1), p - 1) 
+          
+          case _ => stripOuterBrackets(sTrim.substring(1), p )
+
+        }
+      }
+  
+          val leftToken = if(stripOuterBrackets(leftBoolToken.trim(), 0))
+            leftBoolToken.substring(1, leftBoolToken.length() - 2)
+         else
+           leftBoolToken
+           
+         val rightToken = if(stripOuterBrackets(rightBoolToken.trim(), 0))
+            rightBoolToken.substring(1, rightBoolToken.length() - 2)
+         else
+           rightBoolToken
+           
+           println("????????" + rightToken)
+           println("!!!!!!!!" + leftToken)
+  
+  
+  
+  
+  
+  
+  val leftRelational:BooleanNode = buildNode(leftToken)
+  val rightRelational:BooleanNode = buildNode(rightToken)
   
   
   val operation = op match 
@@ -19,6 +57,7 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
   }
   def buildNode(s:String):BooleanNode =
   {
+    println("buildNode  ------" + s )
     s match 
     {
       case x if s.equalsIgnoreCase("true") => TrueNode()

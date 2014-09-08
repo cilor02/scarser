@@ -20,3 +20,13 @@ quit
 exit
 test
 exit
+test
+test-quick
+test com.milo.test.TestBinaryNode.scala
+test-only com.milo.test.TestBinaryNode.scala
+test
+test-quick
+test-only com.milo.test.TestBinaryNode.scala
+test-only com.milo.test.TestBinaryNode
+test-only com.milo.test.TestBinaryBooleanNode
+exit

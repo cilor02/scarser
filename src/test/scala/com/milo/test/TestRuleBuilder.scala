@@ -32,10 +32,24 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
  // }
 
 
+  describe("(6 + 12 > 9)") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes("(6 + 12 > 9)").value)
+    }
+  }
+
   describe("(6 + 12 > 9) and (1 < 4 - 2)") {
     it("should give true") {
       assert(new RuleBuilder().startParseNodes("(6 + 12 > 9) and (1 < 4 - 2)").value)
     }
   }
 
+  
+  
+  describe("6 + 12 > 9 and 1 < 4 - 2") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes("6 + 12 > 9 and 1 < 4 - 2").value)
+    }
+  }
+  
 }

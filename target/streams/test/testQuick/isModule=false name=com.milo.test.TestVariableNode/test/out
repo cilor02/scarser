@@ -1,0 +1,3 @@
+[0m[[0minfo[0m] [0m[32mTestVariableNode:[0m[0m
+[0m[[0minfo[0m] [0m[32mparse b+17 where b = 10[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 27[0m[0m

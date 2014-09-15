@@ -4,30 +4,6 @@
 [0m[[0minfo[0m] [0m[32m(6 + 12) * (3 - 2) = 18 and 12 + 6 > 4 + 1[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32m(6 + 12) * (3 - 2) = 18 and (12 + 6 > 4 + 1)[0m[0m
-[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
-[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: None.get[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:313)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:311)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.LeafVarNode.value(LeafVarNode.scala:6)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.value(RelationalNode.scala:30)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.value(BinaryPairNode.scala:52)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$3$$anonfun$apply$mcV$sp$3.apply$mcV$sp(TestBinaryBooleanNode.scala:49)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$3$$anonfun$apply$mcV$sp$3.apply(TestBinaryBooleanNode.scala:49)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$3$$anonfun$apply$mcV$sp$3.apply(TestBinaryBooleanNode.scala:49)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32m((6 + 12) * (3 - 2) = 18) and (12 + 6 > 4 + 1)[0m[0m
-[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
-[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: None.get[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:313)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:311)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.LeafVarNode.value(LeafVarNode.scala:6)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.value(RelationalNode.scala:30)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.value(BinaryPairNode.scala:52)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$4$$anonfun$apply$mcV$sp$4.apply$mcV$sp(TestBinaryBooleanNode.scala:55)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$4$$anonfun$apply$mcV$sp$4.apply(TestBinaryBooleanNode.scala:55)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestBinaryBooleanNode$$anonfun$4$$anonfun$apply$mcV$sp$4.apply(TestBinaryBooleanNode.scala:55)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m

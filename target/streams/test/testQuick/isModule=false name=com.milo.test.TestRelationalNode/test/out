@@ -1,0 +1,21 @@
+[0m[[0minfo[0m] [0m[32mTestRelationalNode:[0m[0m
+[0m[[0minfo[0m] [0m[32m6 + 12 = 12 + 6[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m6 + 13 > 12 + 6[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m13 = 13 [0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m13 < 14 [0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a = 6[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = 7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = b[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : a + 1 = b + 0[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : (a + 1) * b = a * c + 1[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma=6,b=7,c=8 : (a + 1) * b != a * c[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m

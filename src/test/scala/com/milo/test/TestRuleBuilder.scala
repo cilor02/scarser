@@ -37,18 +37,50 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
       assert(new RuleBuilder().startParseNodes("(6 + 12 > 9)").value)
     }
   }
+   
 
+  nodeMap.clear
+  map.clear
+  variableMap.clear
   describe("(6 + 12 > 9) and (1 < 4 - 2)") {
     it("should give true") {
       assert(new RuleBuilder().startParseNodes("(6 + 12 > 9) and (1 < 4 - 2)").value)
     }
   }
 
-  
-  
+    nodeMap.clear
+  map.clear
+  variableMap.clear
+  describe("(6 + 12 > 9) and (1 < 4 - 2) and 6 > 2") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes("(6 + 12 > 9) and (1 < 4 - 2) and 6 > 2").value)
+    }
+  }
+    
+  nodeMap.clear
+  map.clear
+  variableMap.clear
   describe("6 + 12 > 9 and 1 < 4 - 2") {
     it("should give true") {
       assert(new RuleBuilder().startParseNodes("6 + 12 > 9 and 1 < 4 - 2").value)
+    }
+  }
+
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  describe("6 + 12 > 9 and 1 < 4 - 2 tokenised") {
+    it("should give true") {
+      assert(new RuleBuilder().tokenise ("6 + 12 > 9 and 1 < 4 - 2", List("and","or")) == List("6 + 12 > 9","and","1 < 4 - 2"))
+    }
+  }
+  
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  describe("6 + 12 > 9 and 1 < 4 - 2 or 5 > 9 - 5 tokenised") {
+    it("should give true") {
+      assert(new RuleBuilder().tokenise ("6 + 12 > 9 and 1 < 4 - 2 or 5 > 9 - 5", List("and","or")) == List("6 + 12 > 9","and","1 < 4 - 2","or","5 > 9 - 5"))
     }
   }
   

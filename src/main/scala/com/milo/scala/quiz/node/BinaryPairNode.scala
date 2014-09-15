@@ -10,7 +10,6 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
   
         def stripOuterBrackets(s:String,p:Int):Boolean =
       {
-        println( "token " + s + " bracket count " + p)
         val sTrim = s.trim
         if (sTrim.length == 0)
           false
@@ -28,22 +27,15 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
       }
   
           val leftToken = if(stripOuterBrackets(leftBoolToken.trim(), 0))
-            leftBoolToken.substring(1, leftBoolToken.length() - 2)
+            leftBoolToken.substring(1, leftBoolToken.length() - 1)
          else
            leftBoolToken
            
          val rightToken = if(stripOuterBrackets(rightBoolToken.trim(), 0))
-            rightBoolToken.substring(1, rightBoolToken.length() - 2)
+            rightBoolToken.substring(1, rightBoolToken.length() - 1)
          else
            rightBoolToken
            
-           println("????????" + rightToken)
-           println("!!!!!!!!" + leftToken)
-  
-  
-  
-  
-  
   
   val leftRelational:BooleanNode = buildNode(leftToken)
   val rightRelational:BooleanNode = buildNode(rightToken)
@@ -57,7 +49,7 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
   }
   def buildNode(s:String):BooleanNode =
   {
-    println("buildNode  ------" + s )
+    //println("buildNode  ------" + s )
     s match 
     {
       case x if s.equalsIgnoreCase("true") => TrueNode()
@@ -73,7 +65,7 @@ class BinaryPairNode (op:String,leftBoolToken:String,rightBoolToken:String)(impl
     // possibly a ref to a composite sub phrase
       if (ops.isEmpty)
       {
-        println("*********************" + s)
+       // println("*********************" + s)
          return nodeMap.get{s} match{
           case Some(n) => n
           //case None => Nil

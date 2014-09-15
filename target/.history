@@ -30,3 +30,5 @@ test-only com.milo.test.TestBinaryNode.scala
 test-only com.milo.test.TestBinaryNode
 test-only com.milo.test.TestBinaryBooleanNode
 exit
+test-quick
+test

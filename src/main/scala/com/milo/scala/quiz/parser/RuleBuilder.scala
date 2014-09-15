@@ -8,6 +8,7 @@ import com.milo.scala.quiz.node.Node
 import com.milo.scala.quiz.node.BooleanRefNode
 import com.milo.scala.quiz.node.BooleanRefNode
 import scala.collection.mutable.ListBuffer
+import com.milo.scala.quiz.node.RelationalNode
 
 class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
 {
@@ -47,10 +48,13 @@ class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[Strin
         val name = nextName
         val subPhrase = workString.substring(bracket1 + 1, bracket2)
         
-        println(name + " : " +tokenise(subPhrase,boolOps))
+        //println(name + " : " +tokenise(subPhrase,boolOps))
         boolMap.+=(name -> parse(subPhrase))
-        workString = workString.take(bracket1 ) + name + workString.drop(bracket2 + 1)        
+        workString = workString.take(bracket1 ) + name + workString.drop(bracket2 + 1)
+        //opIndex = workString.indexOf( op, startingFrom)
+        startingFrom = 0
       }
+      else
       startingFrom = workString.indexOf( op, opIndex + op.length());     
     }
     }
@@ -100,7 +104,7 @@ def parseNodes (s:String):BooleanNode =
     }
    }
     //println("no bracket phrase : "+ workString)
-    println(tokenise(workString,boolOps))
+    //println(tokenise(workString,boolOps))
     buildNodes(tokenise(workString,boolOps),boolOps)
   }
   
@@ -187,7 +191,7 @@ def spaceOutBooleanOperators (s:String):String =
     =
     {
       if (ops.isEmpty)
-        return List(s)
+        return List(s.trim)
      val posOp = s.indexOf(ops.head)
      // println("before")
      // println("==============>>>>>" + s + ops.head + posOp + " " + (( posOp > -1 && s.charAt(posOp - 1) == ' ') ))
@@ -207,7 +211,6 @@ def spaceOutBooleanOperators (s:String):String =
         val sList = buffer.toList
        return tokenise(sList.take(posOp).mkString,ops.tail):::List(ops.head):::tokenise(sList.drop(posOp + ops.head.length()).mkString,ops)
      }
-      println("tail " + s + ops.tail)
      tokenise(s,ops.tail)
     }
     
@@ -247,8 +250,6 @@ def spaceOutBooleanOperators (s:String):String =
       }
       
       
-      
-      println("ops :----" + ops + " " + tokens)
       if(!ops.isEmpty)
       {
       val idx = tokens.indexWhere(_== ops.head)
@@ -259,19 +260,7 @@ def spaceOutBooleanOperators (s:String):String =
         val leftBoolToken  = tokens(idx - 1)
         val rightBoolToken = tokens(idx + 1)
  
-        val leftToken = if(stripOuterBrackets(leftBoolToken.trim(), 0))
-            leftBoolToken.substring(1, leftBoolToken.length() - 2)
-         else
-           leftBoolToken
-           
-         val rightToken = if(stripOuterBrackets(rightBoolToken.trim(), 0))
-            rightBoolToken.substring(1, rightBoolToken.length() - 2)
-         else
-           rightBoolToken
-           
-           println("????????" + rightToken)
-           println("!!!!!!!!" + leftToken)
-        val newNode = new BinaryPairNode (tokens(idx),leftToken, rightToken)
+        val newNode = new BinaryPairNode (tokens(idx),tokens(idx - 1), tokens(idx + 1))
      
         val newNodeName = this.nextName
         this.nodeMap+=(newNodeName -> newNode)
@@ -286,10 +275,38 @@ def spaceOutBooleanOperators (s:String):String =
           buildNodes(tokens,ops.tail)
       }
       }else
+        if(nodeMap.contains(tokens.head))
       {
         new BooleanRefNode(tokens.head)
+      } 
+        else
+        {
+          if (stripOuterBrackets(tokens.head, 0))
+            buildSingleBooleanTokenNodes (tokens.head.substring(1, tokens.head.length() - 1),arithOps)
+          else
+          {
+            buildSingleBooleanTokenNodes(tokens.head,arithOps)
+          }
+        }
+    }    
+    
+  def buildSingleBooleanTokenNodes(s:String, ops:List[String]):BooleanNode=
+    {
+    // possibly a ref to a composite sub phrase
+      if (ops.isEmpty)
+      {
+         return nodeMap.get{s} match{
+          case Some(n) => n
+          //case None => Nil
+      }
+       
       }
       
-
-    }    
+      val leftExpAndRightExp = s.split(ops.head)
+      println(leftExpAndRightExp(0) + ops.head)
+      if(leftExpAndRightExp.length < 2)
+        buildSingleBooleanTokenNodes(s, ops.tail)
+      else
+        new RelationalNode(ops.head,leftExpAndRightExp(0),leftExpAndRightExp(1))
+     }
 }

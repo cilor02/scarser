@@ -1,0 +1,5 @@
+[0m[[0minfo[0m] [0m[32mTestBinaryNode:[0m[0m
+[0m[[0minfo[0m] [0m[32mparse 6+7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 13[0m[0m
+[0m[[0minfo[0m] [0m[32mparse 7 + -6[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 1[0m[0m

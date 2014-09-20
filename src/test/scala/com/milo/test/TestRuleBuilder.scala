@@ -84,4 +84,47 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
     }
   }
   
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  variableMap += ("a" -> 17)
+  variableMap += ("b" -> 10)
+    describe("a + 12 > 28 and b > 4 - 2 and 5 > b - a tokenised") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes ("a + 12 > 28 and b > 4 - 2 and 5 > b - a").value)
+    }
+  }
+  
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  variableMap += ("a" -> 17)
+  variableMap += ("b" -> 10)
+    describe("a > 28 or b > 4 - 2 and 5 > b - a tokenised") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes ("a  > 28 or b > 4 - 2 and 5 > b - a").value)
+    }
+  }
+  
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  variableMap += ("a" -> 17)
+  variableMap += ("b" -> 10)
+    describe("a > 28 and b > 4 - 2 and 5 > b - a tokenised") {
+    it("should give true") {
+      assert(!new RuleBuilder().startParseNodes ("a  > 28 and b > 4 - 2 and 5 > b - a").value)
+    }
+  }
+  
+  nodeMap.clear
+  map.clear
+  variableMap.clear
+  variableMap += ("a" -> 17)
+  variableMap += ("b" -> 10)
+    describe("6 factorOf 12") {
+    it("should give true") {
+      assert(new RuleBuilder().startParseNodes ("6 factorOf 12").value)
+    }
+  }
 }

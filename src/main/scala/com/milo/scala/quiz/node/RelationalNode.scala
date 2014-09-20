@@ -24,7 +24,9 @@ val left:Node = new LeafVarNode(tokensL.head)
     case "<" => (a:Double,b:Double) => a < b
     case ">" => (a:Double,b:Double) => a > b
     case ">=" => (a:Double,b:Double) => a >= b   
-    case "<=" => (a:Double,b:Double) => a <= b 
+    case "<=" => (a:Double,b:Double) => a <= b
+    case "factorOf" => (a:Double,b:Double) => b % a == 0
+    case "multipleOf" => (a:Double,b:Double) => a % b == 0
   }
   
   override def value = operation(left.value,right.value)

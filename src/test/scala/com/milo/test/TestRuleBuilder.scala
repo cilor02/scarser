@@ -48,7 +48,7 @@ implicit var variableMap:Map[String,Double] = Map[String,Double]()
     }
   }
 
-    nodeMap.clear
+  nodeMap.clear
   map.clear
   variableMap.clear
   describe("(6 + 12 > 9) and (1 < 4 - 2) and 6 > 2") {

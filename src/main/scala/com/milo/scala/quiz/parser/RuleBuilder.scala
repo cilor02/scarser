@@ -13,9 +13,6 @@ import com.milo.scala.quiz.node.RelationalNode
 class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[String, Double],nodeMap:Map[String, BooleanNode])
 {
   
-  implicit val boolMap:Map[String, List[String]] = Map[String, List[String]]()
-  //implicit val nodeMap:Map[String, BooleanNode] = Map[String, BooleanNode]()
-  
     
  val boolOps = List("or","and")
  val arithOps = List("<=",">=","=",">","<", "factorOf", "multipleOf")
@@ -48,8 +45,7 @@ class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[Strin
         val name = nextName
         val subPhrase = workString.substring(bracket1 + 1, bracket2)
         
-        //println(name + " : " +tokenise(subPhrase,boolOps))
-        boolMap.+=(name -> parse(subPhrase))
+        parse(subPhrase)
         workString = workString.take(bracket1 ) + name + workString.drop(bracket2 + 1)
         //opIndex = workString.indexOf( op, startingFrom)
         startingFrom = 0

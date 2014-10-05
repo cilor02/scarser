@@ -1,0 +1,9 @@
+[0m[[0minfo[0m] [0m[32mTestSignBinder:[0m[0m
+[0m[[0minfo[0m] [0m[32mbind 6,+,7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 6,+7[0m[0m
+[0m[[0minfo[0m] [0m[32mbind 6,+,-,7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 6,+,-7[0m[0m
+[0m[[0minfo[0m] [0m[32mbind 6,-,-,7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 6,-,-7[0m[0m
+[0m[[0minfo[0m] [0m[32mbind 6,**,-,7[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give 6,**,-7[0m[0m

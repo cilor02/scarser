@@ -42,7 +42,27 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
                       </fraction>
                      <var ref="d"/>
                    </test>;
-      println("testDoc" +  qProcessor.extractVars(testDoc))
+      
+          
+      val testDoc2 = <test>
+                       <var ref="a" max="5"/>
+                       <fraction>
+                        <numerator>
+                          <var ref="b" max="7"/> 
+                        </numerator>
+                       <denominator>
+                        <var ref="c" max="8"/>
+                       </denominator>
+                      </fraction>
+                     <var ref="d" max="2"/>
+                   </test>;
+      
+      val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
+      println("variables"+variables)
+      println("vars "+qProcessor.extractVarsValues(testDoc2))
+      
+      println("substituted " + qProcessor.transform(testDoc2, variables))
+      println("testDoc" +  qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2)))
       assert(qProcessor.extractVars(testDoc).size == 4)
     }
   }

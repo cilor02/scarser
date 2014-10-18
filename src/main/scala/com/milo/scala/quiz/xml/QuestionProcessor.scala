@@ -11,6 +11,7 @@ import scala.xml.transform.RewriteRule
 import scala.xml.Node
 import scala.xml.Text
 import scala.xml.transform.RuleTransformer
+import scala.xml.Attribute
 
 
 case class XmlTransformer(n:Node , varMap :Map[String,Int]) extends RewriteRule
@@ -19,7 +20,7 @@ case class XmlTransformer(n:Node , varMap :Map[String,Int]) extends RewriteRule
   {
     n match 
     {
-      case e:Elem if e.label == "var" => Array[Node](  {println("transform");Text(String.valueOf(varMap.get(n.attribute("ref").get.text).get ) )}).toSeq
+      case e:Elem if e.label == "var" => Array[Node](  {Text(String.valueOf(varMap.get(n.attribute("ref").get.text).get ) )}).toSeq
       case _ => n
     }
   }
@@ -44,7 +45,13 @@ class QuestionProcessor extends RewriteRule{
     val xmlDoc = XML.loadFile(f)
     xmlDoc \\ "var" \ "@ref" 
   }
-  
+  def extractRules(e:Elem):List[String] =
+  {
+    val varEle = e\\"rules"\"rule"
+    val rules2 = varEle.filter(x => {x.attribute("exp")!= None}).map(_.attribute("exp").get.text)
+        rules2.toList
+    
+  }
 
   
   def extractVarsValues(e:Elem):List[(String,String)]  =

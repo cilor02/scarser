@@ -8,6 +8,8 @@ import scala.collection.mutable.Map
 import com.milo.scala.quiz.node.LeafNumericNode
 import scala.xml.XML
 import com.milo.scala.quiz.xml.QuestionProcessor
+import scala.xml.Document
+import scala.xml.Elem
 
 class TestQuestionProcessor extends FunSpec with ShouldMatchers {
 
@@ -58,14 +60,87 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
                    </test>;
       
       val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
-      println("variables"+variables)
-      println("vars "+qProcessor.extractVarsValues(testDoc2))
-      
-      println("substituted " + qProcessor.transform(testDoc2, variables))
-      println("testDoc" +  qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2)))
+
       assert(qProcessor.extractVars(testDoc).size == 4)
     }
   }
+  
+  
+  describe("multi var element substitution 1 level") {
+    it("should give 4") {
+      val qProcessor = new QuestionProcessor
+      
+
+      
+          
+      val testDoc2 = <test>
+                       <a><var ref="a" max="5"/></a>
+                       <b><var ref="b" max="7"/></b> 
+                       <c><var ref="c" max="8"/></c>
+                       <d><var ref="d" max="2"/></d>
+                   </test>;
+      
+      val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
+      //println("variables"+variables)
+      //println("vars "+qProcessor.extractVarsValues(testDoc2))
+      
+      println("substituted " + qProcessor.transform(testDoc2, variables))
+      
+      
+      //println("testDoc" +  qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2)))
+      
+      val xformedXml = qProcessor.transform(testDoc2, variables)
+      
+      val root = xformedXml.toSeq.head
+      /*root.child.foreach 
+      {
+        case <a>{n}</a> => println("<a>"+(Integer parseInt n.text))
+        case <b>{n}</b> => println("<b>"+(Integer parseInt n.text))
+        case <c>{n}</c> => println("<c>"+(Integer parseInt n.text))
+        case <d>{n}</d> => println("<d>"+(Integer parseInt n.text))
+      }*/
+
+      root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label, Integer parseInt n.text)).forall(      {
+        case ("a",b) => b < 5
+        case ("b",b) => b< 7
+        case ("c",b) => b < 8
+        case ("d",b) => b < 2
+        
+      }) 
+
+     root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label, Integer parseInt n.text)).foreach(      {
+        case ("a",b) => assert(b < 5)
+        case ("b",b) => assert(b < 7)
+        case ("c",b) => assert(b < 8)
+        case ("d",b) => assert(b < 2)
+        
+      }) 
+      
+      assert(qProcessor.extractVars(testDoc2).size == 4)
+    }
+  }
+  
+  
+    
+  describe("extract rules") {
+    it("should give 4") {
+      val qProcessor = new QuestionProcessor
+      
+      val testDoc = <test>
+<rules>
+<rule exp="a+b > c"/>
+<rule exp="a=d"/>
+</rules>
+
+                   </test>;
+val rules = qProcessor.extractRules(testDoc)
+assert(rules.size == 2)
+
+assert(rules.contains("a=d"))
+      
+    }
+  }
+  
   
   
 }

@@ -1,23 +1,22 @@
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBooleanRef, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestTrueOrFalseNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBinaryNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestQuestionProcessor, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBinaryBooleanNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestVarNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestExpressionBuilder, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestVariableNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestNoBracket, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestSignBinder, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestRelationalNode, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestExpressionTokeniser, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestRuleBuilder, org.scalatest.tools.Framework$$anon$1@3b136ec5, false, [SuiteSelector])[0m
-[0m[[0minfo[0m] [0m[36mRun completed in 2 seconds, 469 milliseconds.[0m[0m
-[0m[[0minfo[0m] [0m[36mTotal number of tests run: 46[0m[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBinaryNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBinaryBooleanNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestNoBracket, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestQuestionProcessor, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestVarNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestTrueOrFalseNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestRelationalNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestBooleanRef, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestExpressionBuilder, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestRuleBuilder, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestVariableNode, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestSignBinder, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0mdebug[0m] [0mRunning TaskDef(com.milo.test.TestExpressionTokeniser, org.scalatest.tools.Framework$$anon$1@10388161, false, [SuiteSelector])[0m
+[0m[[0minfo[0m] [0m[36mRun completed in 2 seconds, 717 milliseconds.[0m[0m
+[0m[[0minfo[0m] [0m[36mTotal number of tests run: 47[0m[0m
 [0m[[0minfo[0m] [0m[36mSuites: completed 13, aborted 0[0m[0m
-[0m[[0minfo[0m] [0m[36mTests: succeeded 46, failed 0, canceled 0, ignored 0, pending 0[0m[0m
-[0m[[0minfo[0m] [0m[32mAll tests passed.[0m[0m
+[0m[[0minfo[0m] [0m[36mTests: succeeded 46, failed 1, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0minfo[0m] [0m[31m*** 1 TEST FAILED ***[0m[0m
 [0m[[0mdebug[0m] [0mPassed tests:[0m
-[0m[[0mdebug[0m] [0m	com.milo.test.TestQuestionProcessor[0m
 [0m[[0mdebug[0m] [0m	com.milo.test.TestNoBracket[0m
 [0m[[0mdebug[0m] [0m	com.milo.test.TestVariableNode[0m
 [0m[[0mdebug[0m] [0m	com.milo.test.TestRuleBuilder[0m
@@ -30,3 +29,6 @@
 [0m[[0mdebug[0m] [0m	com.milo.test.TestRelationalNode[0m
 [0m[[0mdebug[0m] [0m	com.milo.test.TestVarNode[0m
 [0m[[0mdebug[0m] [0m	com.milo.test.TestBinaryBooleanNode[0m
+[0m[[31merror[0m] [0mFailed tests:[0m
+[0m[[31merror[0m] [0m	com.milo.test.TestQuestionProcessor[0m
+[0m[[31merror[0m] [0m(test:[31mtest[0m) sbt.TestsFailedException: Tests unsuccessful[0m

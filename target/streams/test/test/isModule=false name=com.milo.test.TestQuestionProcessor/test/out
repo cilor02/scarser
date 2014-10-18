@@ -3,3 +3,6 @@
 [0m[[0minfo[0m] [0m[32m- should give 1[0m[0m
 [0m[[0minfo[0m] [0m[32mmulti var element[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give 4[0m[0m
+[0m[[0minfo[0m] [0m[32mmulti var element substitution 1 level[0m[0m
+[0m[[0minfo[0m] [0m[31m- should give 4 *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  org.scalatest.exceptions.TestFailedException was thrown. (TestQuestionProcessor.scala:112)[0m[0m

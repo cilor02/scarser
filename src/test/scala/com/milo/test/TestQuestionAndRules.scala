@@ -10,8 +10,9 @@ import scala.xml.XML
 import com.milo.scala.quiz.xml.QuestionProcessor
 import scala.xml.Document
 import scala.xml.Elem
+import com.milo.scala.quiz.parser.RuleBuilder
 
-class TestQuestionProcessor extends FunSpec with ShouldMatchers {
+class TestQuestionAndRules extends FunSpec with ShouldMatchers {
 
 
 
@@ -33,6 +34,10 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
       val qProcessor = new QuestionProcessor
       
       val testDoc = <test>
+                       <rules>
+                         <rule exp="a+b > c"/>
+                         <rule exp="a=d"/>
+                       </rules>
                        <var ref="a"/>
                        <fraction>
                         <numerator>
@@ -60,6 +65,14 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
                    </test>;
       
       val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
+      
+      val rules = qProcessor.extractRules(testDoc)
+      
+            assert(new RuleBuilder().startParseNodes("6 + 12 > 9 and 1 < 4 - 2").value)
+assert(rules.size == 2)
+
+assert(rules.contains("a=d"))
+assert(rules.contains("a+b > c"))
 
       assert(qProcessor.extractVars(testDoc).size == 4)
     }

@@ -12,9 +12,14 @@ import scala.xml.Node
 import scala.xml.Text
 import scala.xml.transform.RuleTransformer
 import scala.xml.Attribute
+import com.milo.scala.quiz.parser.RuleBuilder
+import com.milo.scala.quiz.node.BooleanNode
+import scala.collection.mutable.Map
+import scala.collection.immutable.Map
+//import com.milo.scala.quiz.node.Node
 
 
-case class XmlTransformer(n:Node , varMap :Map[String,Int]) extends RewriteRule
+case class XmlTransformer(n:Node , varMap :scala.collection.immutable.Map[String,Double]) extends RewriteRule
 {
     override def transform(n: Node): Seq[Node]= 
   {
@@ -31,11 +36,14 @@ case class XmlTransformer(n:Node , varMap :Map[String,Int]) extends RewriteRule
 }
 
 class QuestionProcessor extends RewriteRule{
+  type ParserNode = com.milo.scala.quiz.node.BooleanNode
+  
+  implicit var map:scala.collection.mutable.Map[String,com.milo.scala.quiz.node.Node] =  scala.collection.mutable.Map[String,com.milo.scala.quiz.node.Node]()
+  implicit var nodeMap:scala.collection.mutable.Map[String,BooleanNode] =  scala.collection.mutable.Map[String,BooleanNode]()
+  implicit var variableMap:scala.collection.mutable.Map[String,Double] = scala.collection.mutable.Map[String,Double]()
   
   
-  
-  
-   def transform(n: Node, varMap :Map[String,Int]): Seq[Node]= 
+   def transform(n: Node, varMap :scala.collection.immutable.Map[String,Double]): Seq[Node]= 
   {
    new RuleTransformer (XmlTransformer(n,varMap))(n)
   }
@@ -65,19 +73,44 @@ class QuestionProcessor extends RewriteRule{
 
 
   
-  def assignValues(list : List[(String,String)]):Map[String,Int] =
+  def assignValues(list : List[(String,String)]):scala.collection.immutable.Map[String,Int] =
   {
-   list.foldLeft( Map[String,Int]()) ((acc, tpl)=>{acc + (tpl._1 -> Random.nextInt(tpl._2.toInt))})
+   list.foldLeft( scala.collection.immutable.Map[String,Int]()) ((acc, tpl)=>{acc + (tpl._1 -> Random.nextInt(tpl._2.toInt))})
     //list.map(x => {x._1 -> Random.nextInt(x._2.toInt)} )    
   }
+  
+  def assignDoubleValues(list : List[(String,String)]):scala.collection.immutable.Map[String,Double] =
+  {
+   list.foldLeft( scala.collection.immutable.Map[String,Double]()) ((acc, tpl)=>{acc + (tpl._1 -> Random.nextInt(Integer parseInt tpl._2))})
+    //list.map(x => {x._1 -> Random.nextInt(x._2.toInt)} )    
+  }
+  
   
   def extractVars(e:Elem):List[String]  =
   {
    val varEle = e \\ "var"
    val varEleRef = e \\ "var" \ "@ref"
    varEle.filter(x => x.attribute("ref")!= None).map(_.attribute("ref").get.text).toList
-  // varEleRef.foreach(println(_))
-   //varEleRef.map((x)=>x.text).toList   
+  }
+  
+  def generateQuestion(e:Elem):Seq[Node] =
+  {    
+    while(!processQuestionRules(e))
+    {
+      
+    }    
+    this.transform(e,variableMap.toMap )
+  }
+  
+  
+  
+  
+  def processQuestionRules(e:Elem):Boolean =
+  {
+    val rules = this.extractRules(e)
+    variableMap = assignDoubleValues(extractVarsValues(e)).toSeq.foldLeft(scala.collection.mutable.Map[String,Double]())((m,item)=> m+=item)
+    val ruleBuilder = new RuleBuilder
+    rules.forall(ruleBuilder.startParseNodes(_).value)
   }
 
 }

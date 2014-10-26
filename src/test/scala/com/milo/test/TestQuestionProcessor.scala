@@ -10,6 +10,7 @@ import scala.xml.XML
 import com.milo.scala.quiz.xml.QuestionProcessor
 import scala.xml.Document
 import scala.xml.Elem
+import java.lang.Double
 
 class TestQuestionProcessor extends FunSpec with ShouldMatchers {
 
@@ -59,7 +60,7 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
                      <var ref="d" max="2"/>
                    </test>;
       
-      val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
+      val variables = qProcessor.assignDoubleValues(qProcessor.extractVarsValues(testDoc2))
 
       assert(qProcessor.extractVars(testDoc).size == 4)
     }
@@ -79,8 +80,9 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
                        <c><var ref="c" max="8"/></c>
                        <d><var ref="d" max="2"/></d>
                    </test>;
+      println(" q processor " + qProcessor.extractVarsValues(testDoc2))
       
-      val variables = qProcessor.assignValues(qProcessor.extractVarsValues(testDoc2))
+      val variables = qProcessor.assignDoubleValues(qProcessor.extractVarsValues(testDoc2))
       //println("variables"+variables)
       //println("vars "+qProcessor.extractVarsValues(testDoc2))
       
@@ -100,7 +102,7 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
         case <d>{n}</d> => println("<d>"+(Integer parseInt n.text))
       }*/
 
-      root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label, Integer parseInt n.text)).forall(      {
+      root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label,  Double parseDouble n.text)).forall(      {
         case ("a",b) => b < 5
         case ("b",b) => b< 7
         case ("c",b) => b < 8
@@ -108,7 +110,7 @@ class TestQuestionProcessor extends FunSpec with ShouldMatchers {
         
       }) 
 
-     root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label, Integer parseInt n.text)).foreach(      {
+     root.child.filter({case e:Elem => true case _ => false}).map((n)=>(n.label, Double parseDouble n.text)).foreach(      {
         case ("a",b) => assert(b < 5)
         case ("b",b) => assert(b < 7)
         case ("c",b) => assert(b < 8)
@@ -142,29 +144,6 @@ assert(rules.contains("a+b > c"))
       
     }
   }
-  
-  describe("extract and apply rules") {
-    it("rules should pass") {
-      val qProcessor = new QuestionProcessor
-      
-      val testDoc = <test>
-<rules>
-<rule exp="a+b > c"/>
-<rule exp="a=d"/>
-</rules>
-
-                   </test>;
-val rules = qProcessor.extractRules(testDoc)
-assert(rules.size == 2)
-
-assert(rules.contains("a=d"))
-assert(rules.contains("a+b > c"))
-
-      
-    }
-  }
-  
-  
   
   
 }

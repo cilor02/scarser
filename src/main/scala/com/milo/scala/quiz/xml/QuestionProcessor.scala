@@ -97,7 +97,7 @@ class QuestionProcessor extends RewriteRule{
   {    
     while(!processQuestionRules(e))
     {
-      
+      variableMap.empty
     }    
     this.transform(e,variableMap.toMap )
   }

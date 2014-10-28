@@ -146,4 +146,80 @@ assert(rules.contains("a+b > c"))
   }
   
   
+      
+  describe("whole question") {
+    it("should give 4") {
+      val qProcessor = new QuestionProcessor
+      
+      val testDoc = <test>
+<rules>
+<rule exp="a+b > c"/>
+<rule exp="a=d"/>
+</rules>
+
+ <a><var ref="a" max="10"/></a>
+ <b><var ref="b" max="10"/></b> 
+ <c><var ref="c" max="10"/></c>
+ <d><var ref="d" max="10"/></d>
+</test>;
+
+val rules = qProcessor.extractRules(testDoc)
+
+val substitutedSequences = qProcessor.generateQuestion(testDoc).toSeq.head
+println(substitutedSequences)
+val aText =  Double parseDouble (substitutedSequences.child.filter({case e:Elem if e.label == "a" => true case _ =>false}).head.text )
+
+val bText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "b" => true case _ =>false}).head.text
+
+val cText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "c" => true case _ =>false}).head.text
+
+val dText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "d" => true case _ =>false}).head.text
+
+assert(aText == dText)
+
+assert (aText + bText > cText)
+     
+    }
+  }
+  
+  
+  
+    describe("more questions") {
+    it("all conditions should be true") {
+      val qProcessor = new QuestionProcessor
+      
+      val testDoc = <test>
+<rules>
+<rule exp="a+b =2 * c"/>
+<rule exp="4 * a=d"/>
+</rules>
+
+ <a><var ref="a" max="10"/></a>
+ <b><var ref="b" max="10"/></b> 
+ <c><var ref="c" max="10"/></c>
+ <d><var ref="d" max="10"/></d>
+</test>;
+
+val rules = qProcessor.extractRules(testDoc)
+
+val substitutedSequences = qProcessor.generateQuestion(testDoc).toSeq.head
+
+println(substitutedSequences)
+
+val aText =  Double parseDouble (substitutedSequences.child.filter({case e:Elem if e.label == "a" => true case _ =>false}).head.text )
+
+val bText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "b" => true case _ =>false}).head.text
+
+val cText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "c" => true case _ =>false}).head.text
+
+val dText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "d" => true case _ =>false}).head.text
+
+assert( 4 * aText == dText)
+
+assert (aText + bText == 2 * cText)
+     
+    }
+  }
+  
+  
 }

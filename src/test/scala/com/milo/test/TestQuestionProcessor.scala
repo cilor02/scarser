@@ -221,5 +221,53 @@ assert (aText + bText == 2 * cText)
     }
   }
   
+    
+        describe("more questions with derived variables") {
+    it("all conditions should be true") {
+      val qProcessor = new QuestionProcessor
+      
+      val testDoc = <test>
+<rules>
+<rule exp="a+b =2 * c"/>
+<rule exp="4 * a=d"/>
+</rules>
+
+ <a><var ref="a" max="10"/></a>
+ <b><var ref="b" max="10"/></b> 
+ <c><var ref="c" max="10"/></c>
+ <d><var ref="d" max="10"/></d>
+ <e><derived-var ref="e" value="a+c"/></e>
+ <f><derived-var ref="f" value="b+d"/></f>
+</test>;
+
+val rules = qProcessor.extractRules(testDoc)
+
+val substitutedSequences = qProcessor.generateQuestion(testDoc).toSeq.head
+
+println(substitutedSequences)
+
+val aText =  Double parseDouble (substitutedSequences.child.filter({case e:Elem if e.label == "a" => true case _ =>false}).head.text )
+
+val bText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "b" => true case _ =>false}).head.text
+
+val cText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "c" => true case _ =>false}).head.text
+
+val dText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "d" => true case _ =>false}).head.text
+
+val eText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "e" => true case _ =>false}).head.text
+
+val fText =  Double parseDouble substitutedSequences.child.filter({case e:Elem if e.label == "f" => true case _ =>false}).head.text
+
+
+assert( 4 * aText == dText)
+
+assert (aText + bText == 2 * cText)
+
+assert (eText ==  aText + cText)     
+
+assert (fText ==  bText + dText)
+    }
+  }
+  
   
 }

@@ -16,6 +16,9 @@ import com.milo.scala.quiz.parser.RuleBuilder
 import com.milo.scala.quiz.node.BooleanNode
 import scala.collection.mutable.Map
 import scala.collection.immutable.Map
+import com.milo.scala.quiz.parser.ExpressionTokeniser
+import com.milo.scala.quiz.node.LeafVarNode
+import com.milo.scala.quiz.parser.ExpressionBuilder
 //import com.milo.scala.quiz.node.Node
 
 
@@ -25,6 +28,7 @@ case class XmlTransformer(n:Node , varMap :scala.collection.immutable.Map[String
   {
     n match 
     {
+      case e:Elem if e.label == "derived-var" => Array[Node](  {Text(String.valueOf(varMap.get(n.attribute("ref").get.text).get ) )}).toSeq
       case e:Elem if e.label == "var" => Array[Node](  {Text(String.valueOf(varMap.get(n.attribute("ref").get.text).get ) )}).toSeq
       case _ => n
     }
@@ -85,12 +89,38 @@ class QuestionProcessor extends RewriteRule{
     //list.map(x => {x._1 -> Random.nextInt(x._2.toInt)} )    
   }
   
+  def assignVariablesandDerivedValues (e:Elem):scala.collection.mutable.Map[String,Double] =
+  {
+   val vars = assignDoubleValues(extractVarsValues(e)).toSeq.foldLeft(scala.collection.mutable.Map[String,Double]())((m,item)=> m+=item)
+   val derivedVariables = deriveVars(e)
+   //deriveVarsFromVars(vars,)
+   derivedVariables.foldLeft(vars)((acc,x)=>deriveVarsFromVars(acc,x))
+  }
+  
+  def deriveVarsFromVars(accMap:scala.collection.mutable.Map[String,Double],derived:(String,String)):scala.collection.mutable.Map[String,Double] =
+  {
+    var tokeniser = new ExpressionTokeniser(derived._2 )
+    tokeniser.startTokenising
+    val expressionLocalNodeMap = scala.collection.mutable.Map[String,com.milo.scala.quiz.node.Node]()
+    val node1 = new ExpressionBuilder(tokeniser.tokens.toList)(expressionLocalNodeMap,accMap)
+    val tokens1 = node1.processNodes
+    println("tokens!  "+ (tokens1.head))
+    accMap+=(derived._1 -> new LeafVarNode(tokens1.head)(expressionLocalNodeMap).value)
+    
+  }
   
   def extractVars(e:Elem):List[String]  =
   {
    val varEle = e \\ "var"
    val varEleRef = e \\ "var" \ "@ref"
    varEle.filter(x => x.attribute("ref")!= None).map(_.attribute("ref").get.text).toList
+  }
+  
+    def deriveVars(e:Elem):List[(String,String)]  =
+  {
+   val varEle = e \\ "derived-var"
+   val varEleRef = e \\ "derived-var" \ "@ref"
+   varEle.filter(x => x.attribute("ref")!= None).map(ele =>(ele.attribute("ref").get.text,ele.attribute("value").get.text)).toList
   }
   
   def generateQuestion(e:Elem):Seq[Node] =
@@ -108,7 +138,8 @@ class QuestionProcessor extends RewriteRule{
   def processQuestionRules(e:Elem):Boolean =
   {
     val rules = this.extractRules(e)
-    variableMap = assignDoubleValues(extractVarsValues(e)).toSeq.foldLeft(scala.collection.mutable.Map[String,Double]())((m,item)=> m+=item)
+//    variableMap = assignDoubleValues(extractVarsValues(e)).toSeq.foldLeft(scala.collection.mutable.Map[String,Double]())((m,item)=> m+=item)
+    variableMap = assignVariablesandDerivedValues(e)
     val ruleBuilder = new RuleBuilder
     rules.forall(ruleBuilder.startParseNodes(_).value)
   }

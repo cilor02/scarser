@@ -93,7 +93,6 @@ class ExpressionTokeniser (phrase:String)
 object ExpressionTokeniser extends App{
   val t = new ExpressionTokeniser("a+b-(c/yu)**(3.4345)")
   t.startTokenising
-  println(t.tokens)
   
   def apply (phrase: String) = new ExpressionTokeniser(phrase) 
 }

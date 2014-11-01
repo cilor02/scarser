@@ -53,7 +53,6 @@ class RuleBuilder (implicit var map:Map[String,Node],  var variableMap:Map[Strin
     }
     }
    }
-    println("no bracket phrase : "+ workString)
     tokenise(workString,boolOps)
   }
   
@@ -227,7 +226,6 @@ def spaceOutBooleanOperators (s:String):String =
             
       def stripOuterBrackets(s:String,p:Int):Boolean =
       {
-        println( "token " + s + " bracket count " + p)
         if (s.length == 0)
           false
         else
@@ -297,7 +295,6 @@ def spaceOutBooleanOperators (s:String):String =
       }
       
       val leftExpAndRightExp = s.split(ops.head)
-      println(leftExpAndRightExp(0) + ops.head)
       if(leftExpAndRightExp.length < 2)
         buildSingleBooleanTokenNodes(s, ops.tail)
       else

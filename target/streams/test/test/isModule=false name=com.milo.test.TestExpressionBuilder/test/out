@@ -9,3 +9,6 @@
 [0m[[0minfo[0m] [0m[32m- should give 20[0m[0m
 [0m[[0minfo[0m] [0m[32m(6 + 0) * (12 + 8) / (9 - (4 + 1))[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give 30[0m[0m
+[0m[[0minfo[0m] [0m[32m4.3 + 1.1[0m[0m
+[0m[[0minfo[0m] [0m[31m- should give 5.4 *** FAILED ***[0m[0m
+[0m[[0minfo[0m] [0m[31m  5.4 did not equal 5.5 (TestExpressionBuilder.scala:96)[0m[0m

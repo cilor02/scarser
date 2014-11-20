@@ -1,17 +1,21 @@
 [0m[[0minfo[0m] [0m[32mTestRuleBuilder:[0m[0m
+[0m[[0minfo[0m] [0m[32m(6 + 12 > 9)[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32m(6 + 12 > 9) and (1 < 4 - 2)[0m[0m
-[0m[[0minfo[0m] [0m[31m- should give true *** FAILED ***[0m[0m
-[0m[[0minfo[0m] [0m[31m  java.util.NoSuchElementException: None.get[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:313)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at scala.None$.get(Option.scala:311)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.LeafVarNode.value(LeafVarNode.scala:6)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.RelationalNode.value(RelationalNode.scala:30)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BinaryPairNode.value(BinaryPairNode.scala:83)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.scala.quiz.node.BooleanRefNode.value(BooleanRefNode.scala:6)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply$mcV$sp(TestRuleBuilder.scala:50)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(TestRuleBuilder.scala:46)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at com.milo.test.TestRuleBuilder$$anonfun$1$$anonfun$apply$mcV$sp$1.apply(TestRuleBuilder.scala:46)[0m[0m
-[0m[[0minfo[0m] [0m[31m  at org.scalatest.Transformer$$anonfun$apply$1.apply(Transformer.scala:22)[0m[0m
-[0m[[0minfo[0m] [0m[31m  ...[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m(6 + 12 > 9) and (1 < 4 - 2) and 6 > 2[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
 [0m[[0minfo[0m] [0m[32m6 + 12 > 9 and 1 < 4 - 2[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m6 + 12 > 9 and 1 < 4 - 2 tokenised[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m6 + 12 > 9 and 1 < 4 - 2 or 5 > 9 - 5 tokenised[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma + 12 > 28 and b > 4 - 2 and 5 > b - a tokenised[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma > 28 or b > 4 - 2 and 5 > b - a tokenised[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32ma > 28 and b > 4 - 2 and 5 > b - a tokenised[0m[0m
+[0m[[0minfo[0m] [0m[32m- should give true[0m[0m
+[0m[[0minfo[0m] [0m[32m6 factorOf 12[0m[0m
 [0m[[0minfo[0m] [0m[32m- should give true[0m[0m

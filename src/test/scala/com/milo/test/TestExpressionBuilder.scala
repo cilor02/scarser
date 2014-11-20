@@ -86,4 +86,15 @@ val tokens5 = node5.processNodes
     }
   }
 
+var tokeniser6 = new ExpressionTokeniser("4.3 + 1.1")
+tokeniser6.startTokenising 
+val node6 = new ExpressionBuilder(tokeniser6.tokens.toList)
+val tokens6 = node6.processNodes
+
+  describe("4.3 + 1.1") {
+    it("should give 5.4") {
+      assert(new LeafVarNode(tokens6.head).value  == 5.4)
+    }
+  }
+
 }

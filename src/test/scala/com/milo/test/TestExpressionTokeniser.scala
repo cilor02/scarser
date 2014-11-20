@@ -29,4 +29,13 @@ tokens2.startTokenising
       assert(tokens2.tokens  == List("6","+","7"))
     }
   }
+
+val tokens3 = ExpressionTokeniser("6.5 + 7.4")
+tokens3.startTokenising
+
+  describe("parse 6.5 + 7.4") {
+    it("should give List('6.5','+','7.4')") {
+      assert(tokens3.tokens  == List("6.5","+","7.4"))
+    }
+  }
 }

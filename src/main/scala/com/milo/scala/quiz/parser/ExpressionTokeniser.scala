@@ -44,11 +44,15 @@ class ExpressionTokeniser (phrase:String)
   {
     val wholeNum:String = str.takeWhile(_.isDigit)
     val rest = str.splitAt(wholeNum.length())._2
+
     if (!rest.isEmpty && rest.head == '.')
     {
       val decimal = rest.tail.takeWhile(_.isDigit)
+
       val decimalNumber = wholeNum + "." + decimal
+
       tokens+= decimalNumber
+
       tokenise(str.splitAt(decimalNumber.length())._2)
       
     }

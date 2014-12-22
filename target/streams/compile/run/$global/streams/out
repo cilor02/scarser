@@ -1,8 +1,9 @@
-[0m[[0minfo[0m] [0mRunning com.milo.scala.quiz.misc.RunQuestionCreator3 [0m
+[0m[[0minfo[0m] [0mRunning com.milo.scala.quiz.misc.RunQuestionCreator5 [0m
 [0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
 [0m[[0mdebug[0m] [0m  Classpath:[0m
-[0m[[0mdebug[0m] [0m	C:\scala_dev\projects\scarser\target\scala-2.10\classes[0m
-[0m[[0mdebug[0m] [0m	C:\Users\MICHAEL\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.10.0.jar[0m
+[0m[[0mdebug[0m] [0m	C:\scala_dev\projects\scarser\target\scala-2.11\classes[0m
+[0m[[0mdebug[0m] [0m	C:\Users\MICHAEL\.ivy2\cache\org.scala-lang\scala-library\jars\scala-library-2.11.1.jar[0m
+[0m[[0mdebug[0m] [0m	C:\Users\MICHAEL\.ivy2\cache\org.scala-lang.modules\scala-xml_2.11\bundles\scala-xml_2.11-1.0.2.jar[0m
 [0m[[0mdebug[0m] [0mWaiting for thread run-main-0 to terminate.[0m
 [0m[[0mdebug[0m] [0m	Thread run-main-0 exited.[0m
 [0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m

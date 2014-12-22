@@ -14,7 +14,7 @@ object RunQuestionCreator3 extends App
 </rules>
 <question-text>
 
-Solve <var ref="a" max="10"/>x * x + <var ref="b" max="20"/>x + <var ref="c" max="10"/> = 0 
+Solve $<var ref="a" max="10"/>x ^2 + <var ref="b" max="20"/>x + <var ref="c" max="10"/> = 0 $
 <derived-var ref="solution1" value="((b * b - 4 * a * c)**(1/2) - b)/(2 * a)"/>
 <derived-var ref="solution2" value="((0 - 1)* b -(b * b - 4 * a * c)**(1/2) )/(2 * a)"/>
 <derived-var ref="solution3" value="((b * b - 4 * a * c)**(0.5) - b)/(2 * a)"/>

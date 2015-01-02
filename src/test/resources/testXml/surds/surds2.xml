@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+<rules>
+<rule exp="(a = 2) or (a = 3) or (a = 5) or (a = 7) "/>
+<rule exp="(b = 2) or (b = 3) or (b = 5) or (b = 7) "/>
+<rule exp="(c = 2) or (c = 3) or (c = 5) or (c = 7) "/>
+<rule exp="(d = 2) or (d = 3) or (d = 5) or (d = 7) "/>
+<rule exp="(a &lt; b) or (a &gt; b) "/>
+<rule exp="(c &lt; d) or (c &gt; d) "/>
+</rules>
+<question-text> Rationalise
+<exp><frac><num><sqrt><var ref="a" max="10"/></sqrt><operation>-</operation><sqrt><var ref="b" max="10"/></sqrt></num><den><sqrt><var ref="c" max="10"/></sqrt><operation>+</operation><sqrt><var ref="d" max="10"/></sqrt></den></frac></exp> 
+</question-text>
+</test>

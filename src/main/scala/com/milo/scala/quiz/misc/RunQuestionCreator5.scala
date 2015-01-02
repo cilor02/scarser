@@ -70,24 +70,23 @@ object RunQuestionCreator5 extends App
     }
   }
     
-/*  
-      def xmlToLatex (n:Node):String
+def xmlToLatex (n:Node):String =
   {
     n match
     {
-      case e: Elem if e.label == "exp" => "$" + e.child.foldLeft(new String())((x,y)=> x +) (processXml  (_)); print("$");
-      case e: Elem if e.label == "bracket" => print("\\left (");e.child.map (processXml  (_));print("\\right )");
-      case e: Elem if e.label == "frac" => print("\\frac");e.child.map (processXml  (_));
-      case e: Elem if e.label == "num" => print("{");e.child.map (processXml  (_)); print("}");
-      case e: Elem if e.label == "den" => print("{");e.child.map (processXml  (_)); print("}");
-      case e: Elem if e.label == "sqrt" => print("\\sqrt{");e.child.map (processXml  (_)); print("}");
-      case e: Elem if e.label == "power" => print("^{");e.child.map (processXml  (_)); print("}");
-      case e: Elem =>e.child.map (processXml  (_)) 
-      case e: Text =>print(e.text)
+      case e: Elem if e.label == "rules" => ""
+      case e: Elem if e.label == "exp" => "$" + e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"$";
+      case e: Elem if e.label == "bracket" => "\\left ("+ e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"\\right )";
+      case e: Elem if e.label == "frac" => "\\frac"+ e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y));
+      case e: Elem if e.label == "num" => "{" + e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"}";
+      case e: Elem if e.label == "den" => "{" + e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"}";
+      case e: Elem if e.label == "sqrt" => "\\sqrt{"+ e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"}";
+      case e: Elem if e.label == "power" => "^{"+ e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y)) +"}";
+      case e: Elem =>e.child.foldLeft(new String())((x,y)=> x + xmlToLatex  (y))
+      case e: Text =>e.text.trim()
 
     }
   }
-  * */
  
     
    /* val ruleWriter = new RewriteRule {
@@ -101,15 +100,15 @@ object RunQuestionCreator5 extends App
       }
     }
 */
-  processXml(testDoc)
+  println (xmlToLatex(testDoc))
   
-  processXml(testDoc2)
+  println (xmlToLatex(testDoc2))
   
-  processXml(testDoc3)
+  println (xmlToLatex(testDoc3))
   
-  processXml(testDoc4)
+  println (xmlToLatex(testDoc4))
  
-  processXml(testDoc5)
+  println (xmlToLatex(testDoc5))
 
 
   

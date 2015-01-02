@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test>
+<rules>
+<rule exp="a+b = 2 * c"/>
+<rule exp="a+b &lt; 12"/>
+</rules>
+<question-text>
+<exp><var ref="a" max="10"/> x<power>2</power> - <var ref="b" max="20"/>x + <var ref="c" max="10"/> = 0 </exp>
+</question-text>
+</test>

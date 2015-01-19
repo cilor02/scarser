@@ -8,7 +8,8 @@
 <rule exp="(a &lt; b) or (a &gt; b) "/>
 <rule exp="(c &lt; d) or (c &gt; d) "/>
 </rules>
-<question-text> Rationalise
-<exp><frac><num><sqrt><var ref="a" max="10"/></sqrt><operation>+</operation><sqrt><var ref="b" max="10"/></sqrt></num><den><sqrt><var ref="c" max="10"/></sqrt><operation>-</operation><sqrt><var ref="d" max="10"/></sqrt></den></frac></exp> 
+<question-text> Solve
+<exp><var ref="a" max="10"/>x<power>2</power><operation>+</operation><var ref="b" max="10"/>x<operation>+</operation><var ref="b" max="10"/><operation>+</operation><var ref="c" max="10"/></exp> 
+<exp><var ref="d" max="10"/>x<operation>+</operation><var ref="e" max="10"/>y<operation>=</operation><var ref="b" max="10"/><operation>+</operation><var ref="c" max="10"/></exp> 
 </question-text>
 </test>
